@@ -6,3 +6,18 @@ let order = [
   { itemName: "Hot Coffee", quantity: 2, unitPrice: 1.0 },
   { itemName: "Hash Brown", quantity: 4, unitPrice: 0.4 },
 ];
+
+function printReceipt(orderArr) {
+  let totalForEachItemArr = []
+  console.log(`QTY   ITEM                 TOTAL`);
+  for (let order of orderArr) {
+    const {itemName, quantity, unitPrice} = order;
+    
+    console.log(`${quantity}     ${itemName}          ${unitPrice}`)
+    let totalForEachItem = quantity * unitPrice;
+    totalForEachItemArr.push(totalForEachItem)
+  }
+  const totalOfTotals = totalForEachItemArr.reduce((item1, item2) => item1+item2);
+  console.log('Total: ', totalOfTotals)
+}
+printReceipt(order)
